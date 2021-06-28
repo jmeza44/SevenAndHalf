@@ -13,12 +13,15 @@ class cards:
                 11:"CABALLO(11)",
                 12:"REY(12)"
             }
+        print("bandera de cartas")
+
     def takeCard(self):
         while True:
-            random_number = random.randrange(1,13)
+            random_number = random.randrange(1, 13)
             if random_number < 8 or random_number > 9:
                 return self.deck[random_number]
-            else: continue
+            else:
+                continue
     
     def getScore(self, value):
         inverse_deck = {
