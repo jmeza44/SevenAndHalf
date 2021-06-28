@@ -1,11 +1,13 @@
 import random
+import resourses as rsc
 from cards import cards
 
 def showMenu():
+    rsc.clear()
     print("----- 7 y un cachito -----" +
         "\n1. Iniciar un nuevo juego" +
         "\n2. Ver puntajes" +
-        "\n3. Salir" + 
+        "\n3. Salir" +
         "\nIngrese el número correspondiente a la elección...")
 
 def choiseCatch():
@@ -20,8 +22,14 @@ def choiseCatch():
                 continue
     return choise
 
+def loadingBar():
+    # en teoria se tenria que imprimir un loading bar
+        rsc.sleep(2)
+
 def playerTurn(deck):
     print("Iniciando un nuevo juego...")
+    # Loading animation
+    loadingBar()
     player_passed = False
     player_score = 0.0
     while True:
@@ -49,7 +57,7 @@ class main(cards):
     while True:
         showMenu()
         choise = choiseCatch()
-        
+
         if choise == 1:
             player_passed = playerTurn(deck)
             if player_passed == True:
@@ -69,7 +77,7 @@ class main(cards):
                         break
                     elif banca_score > 7.5:
                         print("La banca se ha pasado")
-            
+
             continue
         elif choise == 2:
             print("Puntajes: ")
