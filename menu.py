@@ -56,6 +56,20 @@ def getCard(card):
         |               |
         |               |
         |_______________|""".format(str(card)))
+
+def getCardBanca(card):
+    print("La banca se ha entregado un: \n")
+    print("""
+                                    |---------------|
+                                    | {}            
+                                    |               |
+                                    |               |
+                                    |               |
+                                    |               |
+                                    |               |
+                                    |               |
+                                    |               |
+                                    |_______________|""".format(str(card)))
     
 def getActualScore(score):
     print("\n\tTu puntaje actual es: ", score, "\n\t-----------------------------")

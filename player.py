@@ -82,7 +82,7 @@ class player:
 
             # la banca toma una carta del deck.
             card =  str(self.getCard(deck))
-            mn.getCard(card)
+            mn.getCardBanca(card)
 
             # en base de la carta recibida, se calcula los puntos.
             self.setScore(card)

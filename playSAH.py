@@ -21,7 +21,7 @@ def playSAH():
         if jugador.checkActive():
             jugador.jugadorTurn(deck)
             jugador.setNotActive()
-            if not jugador.isPassed:
+            if not jugador.isPassed():
                 bancaPlayer.setActive()
 
         elif bancaPlayer.checkActive():
