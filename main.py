@@ -3,10 +3,6 @@ from cards import cards
 
 # import resourses
 from menu import showMenu, choiseMenu
-from player import playerTurn
-from banca import bancaTurn
-from playSAH import checkWinner
-import resourses as rsc
 from playSAH import playSAH
 
 

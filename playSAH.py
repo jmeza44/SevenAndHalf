@@ -1,4 +1,3 @@
-from cards import cards
 from player import playerTurn
 from banca import bancaTurn
 
