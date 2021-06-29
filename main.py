@@ -26,6 +26,6 @@ while True and exit == 0:
     # Salir del programa
     elif choise == 3:
         break
-    
+
     if exit < 1:
         showMenu()
