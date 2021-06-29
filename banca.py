@@ -1,17 +1,15 @@
-def bancaTurn(deck):
-    banca_passed = False
-    banca_score = 0.0
-    while True:
-        print("La banca está jugando...")
-        card = deck.takeCard()
-        print("La banca ha recibido un: " + str(card))
-        banca_score += deck.getScore(card)
-        print("Ahora el puntaje de la banca es: " + str(banca_score))
-        if banca_score == 7:
-            print("La banca se ha plantado con una puntación de: " + str(banca_score))
-            break
-        elif banca_score > 7.5:
-            banca_passed = True
-            print("La banca se ha pasado")
-            break
-    return (banca_passed, float(banca_score))
+from cards import cards
+
+def bancaGiveCard(deck):
+    card = deck.takeCard()
+    return card
+
+def checkWinner(player_score, banca_score):
+    if player_score > banca_score:
+        print("El jugador gana por puntaje" +
+        "\nJugador: " + str(player_score) +
+        "\nBanca: " + str(banca_score))
+    else:
+        print("La banca gana por puntaje" +
+        "\nJugador: " + str(player_score) +
+        "\nBanca: " + str(banca_score))

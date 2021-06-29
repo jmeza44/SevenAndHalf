@@ -7,9 +7,6 @@ from os import system, name
 # import sleet to show output for some time period
 from time import sleep
 
-
-
-
 # define our clear function
 def clear():
 
@@ -21,5 +18,5 @@ def clear():
     else:
         _ = system("clear")
 
-def sleep(seconds):
+def goSleep(seconds):
     sleep(seconds)

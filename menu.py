@@ -2,11 +2,14 @@ import resourses as rsc
 
 def showMenu():
     rsc.clear()
-    print("----- 7 y un cachito -----" +
-        "\n1. Iniciar un nuevo juego" +
-        "\n2. Ver puntajes" +
-        "\n3. Salir" +
-        "\nIngrese el número correspondiente a la elección...")
+    print(
+"""        + ----------------- 7 y un cachito ---------------- +
+        + 1. Iniciar un nuevo juego.                        +
+        + 2. Ver puntajes.                                  +
+        + 3. Salir.                                         +
+        +                                                   +
+        + Ingrese el número correspondiente a la elección...+
+        +---------------------------------------------------+""" + "\n")
 
 def choiseMenu():
     while True:
@@ -20,6 +23,45 @@ def choiseMenu():
                 continue
     return choise
 
+def loadingGame():
+    print("""
+            EL JUEGO SE ESTÁ INICIALIZANDO..
+            """)
+def tableScore():
+    print("""
+
+    LOS PUNTAJES SON: 
+    
+    """)
+
 def loadingBar():
     # en teoria se tendria que imprimir un loading bar
         rsc.sleep(2)
+
+def playing(name):
+    print("_________________________________")
+    print("\n\tEs el turno de {}...".format(str(name)))
+    print("--------------------------------------------")
+
+def getCard(card):
+    print("La banca te ha entregado un: \n")
+    print("""
+        |---------------|
+        | {}            
+        |               |
+        |               |
+        |               |
+        |               |
+        |               |
+        |               |
+        |               |
+        |_______________|""".format(str(card)))
+    
+def getActualScore(score):
+    print("\n\tTu puntaje actual es: ", score, "\n\t-----------------------------")
+
+def lossMessage():
+    print("///////////////No puede ser, tu haz perdido..........")
+
+def lossMessageBanca():
+    print("///////////////LA BANCA HA PERDIDO..........")

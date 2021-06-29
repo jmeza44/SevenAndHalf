@@ -13,7 +13,6 @@ class cards:
                 11:"CABALLO(11)",
                 12:"REY(12)"
             }
-        print("bandera de cartas")
 
     def takeCard(self):
         while True:

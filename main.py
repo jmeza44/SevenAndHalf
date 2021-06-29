@@ -1,44 +1,31 @@
-
-from cards import cards
-
-# import resourses
-from menu import showMenu, choiseMenu
-from player import playerTurn
-from banca import bancaTurn
-from playSAH import checkWinner
-import resourses as rsc
+from menu import loadingGame, showMenu, choiseMenu, tableScore
 from playSAH import playSAH
+import time
+import resourses as rsc
 
-
-deck = cards()
-
-print(deck.takeCard())
-
+# mostrar el menu, solo la primera vez.
 showMenu()
-while True:
+exit = 0
+while True and exit == 0:
     # Opcion del menu elegida por el usuario
     choise = choiseMenu()
 
     # Iniciar un nuevo juego
     if choise == 1:
         showMenu()
-        print("""
-            USTED ELIGIÓ LA OPCION UNO
-            
-            EL JUEGO SE ESTÁ INICIALIZANDO..
-            
-            """)
-        playSAH(deck)
-        # player_results = list(playerTurn(deck))
+        loadingGame()
+        time.sleep(1)
+        rsc.clear()
+        exit = playSAH()
 
     # Ver los puntajes
     elif choise == 2:
         showMenu()
-        print("""
-        
-            LOS PUNTAJES SON: 
-            
-            """)
+        tableScore()
+
     # Salir del programa
     elif choise == 3:
         break
+    
+    if exit < 1:
+        showMenu()
