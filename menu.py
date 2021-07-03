@@ -44,6 +44,7 @@ def playing(name):
     print("--------------------------------------------")
 
 def getCard(card):
+    rsc.clear()
     print("La banca te ha entregado un: \n")
     print("""
         |---------------|
@@ -58,6 +59,7 @@ def getCard(card):
         |_______________|""".format(str(card)))
 
 def getCardBanca(card):
+    rsc.clear()
     print("La banca se ha entregado un: \n")
     print("""
                                     |---------------|
@@ -72,7 +74,10 @@ def getCardBanca(card):
                                     |_______________|""".format(str(card)))
     
 def getActualScore(score):
-    print("\n\tTu puntaje actual es: ", score, "\n\t-----------------------------")
+    print("\n\tTu puntaje total es: ", score, "\n\t-----------------------------")
+
+def getActualBancaScore(score):
+    print("\n\tEl puntaje total de la Banca es: ", score, "\n\t-----------------------------")
 
 def lossMessage():
     print("///////////////No puede ser, tu haz perdido..........")

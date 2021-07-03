@@ -23,12 +23,15 @@ def playSAH():
             jugador.setNotActive()
             if not jugador.isPassed():
                 bancaPlayer.setActive()
-
+                rsc.goSleep(1)
+                print("Ahora es el turno de la Banca.")
+                rsc.goSleep(2)
+            
         elif bancaPlayer.checkActive():
-            bancaPlayer.bancaTurn(deck)
+            bancaPlayer.bancaTurn(deck, jugador.getScore())
             bancaPlayer.setNotActive()
         else:
-            checkWinner(jugador.getScore(), bancaPlayer.getScore())
+            checkWinner(jugador.getScore(), jugador.isPassed(), bancaPlayer.getScore(), bancaPlayer.isPassed())
             yesornot = str(input("""
                 press b to back to menu
                 press x to exit

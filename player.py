@@ -2,6 +2,7 @@ from banca import bancaGiveCard
 from cards import cards
 import menu as mn
 import resourses as rsc
+import random
 
 class player:
     def __init__(self):
@@ -63,7 +64,6 @@ class player:
             if self.isPassed():
                 self.setPassed()
                 self.setNotActive()
-                mn.lossMessage()
                 break
             else:
                 # plantarse o no plantarse
@@ -75,7 +75,7 @@ class player:
                 elif yesornot == "n" or yesornot == "no":
                     continue
 
-    def bancaTurn(self, deck):
+    def bancaTurn(self, deck, player_score):
         while True:
             mn.playing("<LA BANCA>")
             # rsc.sleep(3)
@@ -86,23 +86,30 @@ class player:
 
             # en base de la carta recibida, se calcula los puntos.
             self.setScore(card)
-            mn.getActualScore(self.getScore())
+            mn.getActualBancaScore(self.getScore())
 
             if self.isPassed():
                 self.setPassed()
                 self.setNotActive()
-                mn.lossMessageBanca()
                 break
             else:
                 # plantarse o no plantarse
                 print("¿La Banca se plantas? ")
-                print(" La banca está pensando...")
-                rsc.sleep(2)
+                print(" La banca está pensando", end=" ", flush = True)
+                rsc.sleep(1)
+                print(".", end=" ", flush = True)
+                rsc.sleep(1)
+                print(".", end=" ", flush = True)
+                rsc.sleep(1)
+                print(".", end=" ", flush = True)
 
-                if self.getScore() >= 7:
+                if self.getScore() > player_score and self.getScore() <= 7.5:
+                    print("La Banca se planta!!")
+                    break              
+                elif self.getScore() >= 7:
                     print("La Banca se planta!!")
                     break
                 else:
-                    rsc.sleep(3)
+                    rsc.sleep(1)
                     continue
 
