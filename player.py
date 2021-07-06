@@ -5,10 +5,11 @@ import resourses as rsc
 import random
 
 class player:
-    def __init__(self):
+    def __init__(self, playerName):
         self.active = False
         self.player_passed = False
         self.player_score = 0.0
+        self.player_name = playerName
 
     # get all data from attibutes, (not need in main execution)
     def getData(self):
@@ -18,39 +19,40 @@ class player:
     def getScore(self):
         return float(self.player_score)
 
-    # Set active
+    # check if this player is active
     def checkActive(self):
         return self.active
 
+    # set focus on this player
     def setActive(self):
         self.active = True
 
+    # this player lost the focus
     def setNotActive(self):
         self.active = False
 
-    # Bollean: if you player pass 7.5 loss
+    # Bolean: if player pass 7.5 points, the player lost
     def isPassed(self):
         if self.player_score > 7.5:
             return True
         else:
             return False
-    
+    # set the player just passed 7.5 points
     def setPassed(self):
         self.player_passed = True
 
-
+    # the player get a card from the bank.
     def getCard(self, deck):
-        # obtener una carta desde la banca
         card = bancaGiveCard(deck)
         return card
     
+    # depent of which card the player received, this compute his score.
     def setScore(self, card):
-        # en base a la carta recibida se obtienen los puntos
         self.player_score += cards.getScore(self, card)
 
     def jugadorTurn(self, deck):
         while True:
-            mn.playing("<PLAYER NAME>")
+            mn.playing(self.player_name)
             # rsc.sleep(3)
 
             # el jugador toma una carta del deck.
@@ -67,9 +69,9 @@ class player:
                 break
             else:
                 # plantarse o no plantarse
-                print("¿Te plantas? yes/no - y/n")
+                print("¿Te plantas? si/no - s/n")
                 yesornot = str(input(">> "))
-                if yesornot == "y" or yesornot == "yes":
+                if yesornot == "s" or yesornot == "si":
                     print("Te has platando con una puntación de ", self.getScore())
                     break
                 elif yesornot == "n" or yesornot == "no":
@@ -77,7 +79,7 @@ class player:
 
     def bancaTurn(self, deck, player_score):
         while True:
-            mn.playing("<LA BANCA>")
+            mn.playing(self.player_name)
             # rsc.sleep(3)
 
             # la banca toma una carta del deck.

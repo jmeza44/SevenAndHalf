@@ -11,6 +11,28 @@ def showMenu():
         + Ingrese el número correspondiente a la elección...+
         +---------------------------------------------------+""" + "\n")
 
+def showMenuUser():
+    rsc.clear()
+    print(
+"""        + ----------------- 7 y un cachito ---------------- +
+        + 1. Crear nuevo usuario.                           +
+        + 2. Cargar usuario. (not implemented)              +
+        + 3. Salir.                                         +
+        +                                                   +
+        + Ingrese el número correspondiente a la elección...+
+        +---------------------------------------------------+""" + "\n")
+
+def showMenuUserName():
+    rsc.clear()
+    print(
+"""        + ----------------- 7 y un cachito ---------------- +
+        + Ingrese un nuevo nombre de usuario:               +
+        +                                                   +
+        +                                                   +
+        +                                                   +
+        + Ingrese el número correspondiente a la elección...+
+        +---------------------------------------------------+""" + "\n")
+
 def choiseMenu():
     while True:
             try:
@@ -24,9 +46,14 @@ def choiseMenu():
     return choise
 
 def loadingGame():
+    rsc.clear()
     print("""
-            EL JUEGO SE ESTÁ INICIALIZANDO..
+            EL MAZO SE ESTA MESCLANDO...
             """)
+    for x in list(range(0, 30)):
+        print(end="#", flush=True)
+        rsc.sleep(0.05)
+
 def tableScore():
     print("""
 
@@ -39,12 +66,14 @@ def loadingBar():
         rsc.sleep(2)
 
 def playing(name):
+    rsc.clear()
     print("_________________________________")
     print("\n\tEs el turno de {}...".format(str(name)))
     print("--------------------------------------------")
 
 def getCard(card):
-    rsc.clear()
+    print("La banca se prepara para quitar una carta...")
+    rsc.sleep(1.3)
     print("La banca te ha entregado un: \n")
     print("""
         |---------------|
@@ -59,7 +88,8 @@ def getCard(card):
         |_______________|""".format(str(card)))
 
 def getCardBanca(card):
-    rsc.clear()
+    print("La banca se prepara para quitar una carta...")
+    rsc.sleep(1.3)
     print("La banca se ha entregado un: \n")
     print("""
                                     |---------------|

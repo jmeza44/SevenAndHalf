@@ -6,11 +6,11 @@ import random
 from banca import checkWinner
 
 
-def playSAH():
+def playSAH(playerName):
     # iniciando constructores
     deck = cards()
-    jugador = player()
-    bancaPlayer = player()
+    jugador = player(playerName)
+    bancaPlayer = player("LA BANCA")
 
     # jugador empieza el juego
     jugador.setActive()
