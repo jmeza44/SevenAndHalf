@@ -1,4 +1,51 @@
 import resourses as rsc
+import keyboard # using module keyboard
+import time
+
+tiempo = 0.0
+
+def menu():
+    # rsc.clear()
+    option_value = int(input("""        + ----------------- 7 y un cachito ---------------- +
+        + 1. Iniciar un nuevo juego.                        +
+        + 2. Ver puntajes.                                  +
+        + 3. Salir.                                         +
+        +                                                   +
+        + Ingrese el número correspondiente a la elección...+
+        +---------------------------------------------------+\n"""))
+    return option_value
+
+def menu1():
+    option_value = int(input("""        + ----------------- 7 y un cachito ---------------- +
+        + 1. Crear nuevo usuario.                           +
+        + 2. Cargar usuario. (not implemented)              +
+        + 3. Volver.                                         +
+        +                                                   +
+        + Ingrese el número correspondiente a la elección...+
+        +---------------------------------------------------+\n"""))
+    option_value = option_value + 10
+    return option_value
+
+def mainMenu():
+    tiempo = time.time() 
+    while True:
+        try:
+            if keyboard.is_pressed('a'):
+                showMenu()
+                # print("IZQUIERDA: ", tiempo_p - tiempo)
+            elif keyboard.is_pressed('d'):
+                tiempo_p =time.time()
+                print("DERECHA: ", tiempo_p - tiempo)
+            elif keyboard.is_pressed('w'):
+                tiempo_p =time.time()
+                print("ARRIBA: ", tiempo_p - tiempo)
+            elif keyboard.is_pressed('s'):
+                tiempo_p =time.time()
+                print("ABAJO: ", tiempo_p - tiempo)
+
+        except:
+            break
+
 
 def showMenu():
     rsc.clear()
