@@ -12,25 +12,27 @@ class Game():
             # if self.option == 0:
             #     self.option = menu()
 
-            
+
             if self.option == 1:
-                print("opcion 1 activada")
-                self.option = 10
+                print("opcion 1 iniciar juego")
+                self.option = menu1()
+                if self.option == 11:
+                 print("opcion 11 Crear nuevo usuario.")
+                elif self.option == 12:
+                    print("opcion 12 Cargar usuario.")
+                elif self.option == 13:
+                    print("opcion 13 Volver.")
+                    # self.option = menu()
             elif self.option == 2:
-                print("opcion 2 activada")
+                print("opcion 2 ver puntajes")
             elif self.option == 3:
                 print("saliendo del juego")
                 self.running = False # stop running
 
             # if self.option == 10:
-            #     self.option = menu1()
+            #     self.option = 
             
-            # if self.option == 11:
-            #     print("Crear nuevo usuario.")
-            # elif self.option == 12:
-            #     print("Cargar usuario.")
-            # elif self.option == 12:
-            #     print("Volver.")
+ 
 
 
     def game_loop(self):
