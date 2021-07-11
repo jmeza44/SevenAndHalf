@@ -168,30 +168,61 @@ def mostrar_resultados(jugadores, banca): # Muestra los resultados despúes de q
         else: # Sino...
             print("\t+", jugador.nombre + ": ¡Pasado(a)!") # Muestra al jugador como pasado o pasada
             sleep(1.0)
-    if banca.puntuacion <= 4.5: # Si la puntuación es menor o igual a 7.5 (No se pasó)
+    if banca.puntuacion <= 7.5: # Si la puntuación es menor o igual a 7.5 (No se pasó)
         print("\t+ Banca:", banca.puntuacion, "puntos") # Muestra la puntuación
         print("\t+ ---------------------------------------------------- +")
     else: # Sino...
         print("\t+ Banca: ¡Pasada!")  # Muestra a la banca como pasada
         print("\t+ ---------------------------------------------------- +")
-    sleep(10.0)
+    sleep(5.0)
 
-def buscar_mayor_puntuacion(jugadores): # Busca el jugador con la puntuación más alta
+def buscar_mayor_puntuacion(jugadores): # Busca el jugador(es) con la puntuación más alta
     jugadores_mayor_puntuacion = [] # Lista de jugadores con la mayor puntuación (en caso de que dos tengan la mayor puntuación)
     puntuacion_mayor_jugadores = 0.0 # 
     for jugador in jugadores: # Por cada jugador...
         if jugador.puntuacion <= 7.5: # ... Si la puntuación del jugador es menor o igual a 7.5 (No se pasó) y...
             if jugador.puntuacion >= puntuacion_mayor_jugadores: # ... Si la puntuación del jugador es la mayor entre todos
-                jugadores_mayor_puntuacion.append()
+                puntuacion_mayor_jugadores = jugador.puntuacion # Actualiza la puntuación mayor
+    for jugador in jugadores: # Por cada jugador...
+        if jugador.puntuacion == puntuacion_mayor_jugadores: # Busca los que tengan la puntuación máxima...
+            jugadores_mayor_puntuacion.append(jugador) # ...Y los agrega a la lista 
+    return jugadores_mayor_puntuacion # Retorna la lista
 
 def mostrar_ganador(jugadores, banca):
-    puntuacion_mayor_jugadores = 0
-    for jugador in jugadores: # Por cada jugador...
-        if jugador.puntuacion <= 7.5: # ... Si la puntuación del jugador es menor o igual a 7.5 (No se pasó) y...
-            if jugador.puntuacion >= puntuacion_mayor_jugadores: # ... Si la puntuación del jugador es la mayor entre todos
-                puntuacion_mayor_jugadores = jugador.puntuacion
-            
-    
+    jugadores_mayor_puntuacion = buscar_mayor_puntuacion(jugadores)
+    if banca.puntuacion < 7.5: # Si la puntuación de la banca es menor que 7.5 (No se pasó pero tampoco tiene la puntuación máxima)...
+        try:
+            if banca.puntuacion >= jugadores_mayor_puntuacion[0].puntuacion: # ... Chequea si la banca tiene mayor o igual puntuación que los jugadores...
+                print(
+                """
+        + ---------------------------------------------------- +
+        + ----------------- ¡La banca gana! ------------------ +
+        + ---------------------------------------------------- +""")
+            else: # Si la banca no tiene mayor o igual puntuación los jugadores ganan
+                print(
+                """
+        + ---------------------------------------------------- +
+                        El jugador {} gana
+        + ---------------------------------------------------- +""".format(jugadores_mayor_puntuacion[0].nombre))
+        except (IndexError):
+            print(
+                """
+        + ---------------------------------------------------- +
+        + ----------------- ¡La banca gana! ------------------ +
+        + ---------------------------------------------------- +""")
+    elif banca.puntuacion == 7.5: # Si la banca tiene la puntuación máxima...
+        print(
+            """
+            + ---------------------------------------------------- +
+            + ----------------- ¡La banca gana! ------------------ +
+            + ---------------------------------------------------- +""")
+    else: # Si la banca se pasa...
+        print(
+            """
+            + ---------------------------------------------------- +
+                            El jugador {} gana
+            + ---------------------------------------------------- +""".format(jugadores_mayor_puntuacion[0].nombre))
+    sleep(10.0)
 
 def iniciar_juego(): # 
     mostrar_menu_juego() # Muestra el menú de elección del número de jugadores
@@ -246,5 +277,6 @@ def iniciar_juego(): #
             else: # Si la banca NO se planta
                 mostrar_banca_continua()
                 continue
-
+    
     mostrar_resultados(jugadores, banca)
+    mostrar_ganador(jugadores, banca)
