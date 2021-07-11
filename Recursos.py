@@ -104,12 +104,41 @@ def mostar_carta(carta): # Muestra cuál es la carta que recibe el jugador en tu
                 |               |
                 |_______________|
         + ---------------------------------------------------- +""".format(carta))
+
+def mostar_carta_banca(carta): # Muestra cuál es la carta que recibe la banca
+    print(
+        """\t+ ---------------------------------------------------- +
+        + --- La banca se prepara para quitar una carta... --- +
+        """)
+    sleep(3.0)
+    print(
+        """
+        + ------------ La banca ha recibido un: -------------- +
+        + ---------------------------------------------------- +
+                                        |---------------|
+                                        | {}            
+                                        |               |
+                                        |               |
+                                        |               |
+                                        |               |
+                                        |               |
+                                        |               |
+                                        |               |
+                                        |_______________|
+        + ---------------------------------------------------- +""".format(carta))
     
 def mostrar_puntaje(puntaje): # Muestra el puntaje del jugador en turno
     print(
         """
         + ---------------------------------------------------- +
         +               Tu puntaje actual es: {}
+        + ---------------------------------------------------- +""".format(puntaje))
+
+def mostrar_puntaje_banca(puntaje): # Muestra el puntaje de la banca
+    print(
+        """
+        + ---------------------------------------------------- +
+        +          El puntaje actual de la banca es: {}
         + ---------------------------------------------------- +""".format(puntaje))
 
 def mostar_menu_plantar(): # Muestra el menú para plantarse al jugador en turno
@@ -262,9 +291,9 @@ def iniciar_juego(): #
     while True:
         mostrar_jugador_actual("La banca") # Inicia el turno de la banca
         carta = mazo.tomar_carta() # Guarda una carta del mazo en la variable carta
-        mostar_carta(carta) # Muestra la carta que recibe la banca
+        mostar_carta_banca(carta) # Muestra la carta que recibe la banca
         puntuacion += mazo.tomar_valor_carta(carta) # Suma el valor de la carta de la banca a su puntuación 
-        mostrar_puntaje(puntuacion) # Muestra el puntaje que ha acumulado la banca
+        mostrar_puntaje_banca(puntuacion) # Muestra el puntaje que ha acumulado la banca
         if chequear_jugador_pasado(puntuacion) == True: # Valida si la banca sobrepasó la puntuación límite
             mostrar_banca_pasada() # Muestra un mensaje indicando que la banca sobrepasó la puntuación límite
             banca.puntuacion = puntuacion # Guarda la puntuación de la banca
