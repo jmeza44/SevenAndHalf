@@ -1,5 +1,6 @@
 # Clase Main de ejecución
-from Recursos import iniciar_juego, mostrar_menu_princ, recibir_eleccion_num
+from Recursos import iniciar_juego, recibir_eleccion_num
+from Menus import mostrar_menu_princ
 
 if __name__ == "__main__":
     while True: # Ciclo de ejecución del algoritmo (Solo termina al seleccionar la opción 3 en el menú principal)
