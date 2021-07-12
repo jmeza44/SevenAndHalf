@@ -6,15 +6,14 @@ tiempo = 0.0
 
 def menu():
     # rsc.clear()
-    option_value = int(input("""        + ----------------- 7 y un cachito ---------------- +
+    print("""        + ----------------- 7 y un cachito ---------------- +
         + 1. Iniciar un nuevo juego.                        +
         + 2. Ver puntajes.                                  +
         + 3. Salir.                                         +
         +                                                   +
         + Ingrese el número correspondiente a la elección...+
-        +---------------------------------------------------+\n"""))
-    return option_value
-
+        +---------------------------------------------------+\n""")
+    
 def menu1():
     option_value = int(input("""        + ----------------- 7 y un cachito ---------------- +
         + 1. Crear nuevo usuario.                           +
@@ -161,3 +160,12 @@ def lossMessage():
 
 def lossMessageBanca():
     print("///////////////LA BANCA HA PERDIDO..........")
+
+def mostrar_menu_juego(): # Muestra el menú de elección del número de jugadores
+    # mostrar_cargando(40)
+    # limpiar_consola()
+    print("""
+    + ----------- ¿Cuántas personas se unirán a la mesa? ----------- +
+    +  1 jugador      2 jugadores      3 jugadores     4 jugadores   +
+    + -------------------------------------------------------------- +
+    """)

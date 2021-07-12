@@ -1,4 +1,6 @@
 from menu import menu, menu1
+from resourses import recibir_eleccion_num
+from playSAH import playSAH
 
 class Game():
     def __init__(self):
@@ -7,22 +9,31 @@ class Game():
         self.menu_level = 0
         self.option = 0
 
+
+    def game_loop(self):
+        while self.running:
+            self.events()
+
+
     def events(self):
-            self.option = menu()
+            menu()
+
+            self.option = recibir_eleccion_num(3)
             # if self.option == 0:
             #     self.option = menu()
 
 
             if self.option == 1:
                 print("opcion 1 iniciar juego")
-                self.option = menu1()
-                if self.option == 11:
-                 print("opcion 11 Crear nuevo usuario.")
-                elif self.option == 12:
-                    print("opcion 12 Cargar usuario.")
-                elif self.option == 13:
-                    print("opcion 13 Volver.")
-                    # self.option = menu()
+                playSAH("batata")
+            #     self.option = menu1()
+            #     if self.option == 11:
+            #      print("opcion 11 Crear nuevo usuario.")
+            #     elif self.option == 12:
+            #         print("opcion 12 Cargar usuario.")
+            #     elif self.option == 13:
+            #         print("opcion 13 Volver.")
+            #         # self.option = menu()
             elif self.option == 2:
                 print("opcion 2 ver puntajes")
             elif self.option == 3:
@@ -35,8 +46,6 @@ class Game():
  
 
 
-    def game_loop(self):
-        while self.running:
-            self.events()
+
 
 
