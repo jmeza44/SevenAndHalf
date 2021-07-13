@@ -17,32 +17,16 @@ class Game():
 
     def events(self):
             menu()
-
             self.option = recibir_eleccion_num(3)
-            # if self.option == 0:
-            #     self.option = menu()
-
 
             if self.option == 1:
                 print("opcion 1 iniciar juego")
-                playSAH("batata")
-            #     self.option = menu1()
-            #     if self.option == 11:
-            #      print("opcion 11 Crear nuevo usuario.")
-            #     elif self.option == 12:
-            #         print("opcion 12 Cargar usuario.")
-            #     elif self.option == 13:
-            #         print("opcion 13 Volver.")
-            #         # self.option = menu()
+                playSAH()
             elif self.option == 2:
                 print("opcion 2 ver puntajes")
             elif self.option == 3:
                 print("saliendo del juego")
                 self.running = False # stop running
-
-            # if self.option == 10:
-            #     self.option = 
-            
  
 
 

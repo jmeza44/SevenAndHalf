@@ -33,3 +33,14 @@ def recibir_eleccion_num(num_opciones): # Recibe una elección de cualquien men�
             print("ERROR!")
             continue
     return eleccion
+
+
+def recibir_nombre() -> str: # Recibe el nombre del jugador en turno (El nombre es retornado para ser almacenado en una variable)
+    # limpiar_consola()
+    print(
+        """
+    + ----------- ¿Cuál es el nombre del jugador {} ------------ +
+    + --------------------------------------------------------- +
+        """.format(str()))
+    nombre = input(">> ")
+    return nombre

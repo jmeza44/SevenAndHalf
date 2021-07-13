@@ -2,14 +2,21 @@ from banca import bancaGiveCard
 from cards import cards
 import menu as mn
 import resourses as rsc
-import random
 
 class player:
     def __init__(self, playerName):
+        # player's states
         self.active = False
         self.player_passed = False
-        self.player_score = 0.0
+
+        # player's own data
         self.player_name = playerName
+        self.player_score = 0.0
+        self.player_coins = 0.0
+
+
+    def getName(self):
+        return self.player_name
 
     # get all data from attibutes, (not need in main execution)
     def getData(self):
@@ -77,11 +84,9 @@ class player:
                 elif yesornot == "n" or yesornot == "no":
                     continue
 
-    def bancaTurn(self, deck, player_score):
+    def bancaTurn(self, deck, list_scores):
         while True:
             mn.playing(self.player_name)
-            # rsc.sleep(3)
-
             # la banca toma una carta del deck.
             card =  str(self.getCard(deck))
             mn.getCardBanca(card)
@@ -90,28 +95,66 @@ class player:
             self.setScore(card)
             mn.getActualBancaScore(self.getScore())
 
-            if self.isPassed():
-                self.setPassed()
-                self.setNotActive()
+            # plantarse o no plantarse
+            print("¿La Banca se plantas? ")
+            print(" La banca está pensando", end=" ", flush = True)
+            rsc.sleep(1)
+            print(".", end=" ", flush = True)
+            rsc.sleep(1)
+            print(".", end=" ", flush = True)
+            rsc.sleep(1)
+            print(".", end=" ", flush = True)
+
+            max = list_scores[0].player_score
+            for scores in list_scores:
+                if max < scores.player_score:
+                    max = scores.player_score
+
+            if self.getScore() > max and self.getScore() <= 7.5:
+                print("La Banca se planta!!")
+                break              
+            elif self.getScore() >= 7:
+                print("La Banca se planta!!")
                 break
             else:
-                # plantarse o no plantarse
-                print("¿La Banca se plantas? ")
-                print(" La banca está pensando", end=" ", flush = True)
                 rsc.sleep(1)
-                print(".", end=" ", flush = True)
-                rsc.sleep(1)
-                print(".", end=" ", flush = True)
-                rsc.sleep(1)
-                print(".", end=" ", flush = True)
+                continue
 
-                if self.getScore() > player_score and self.getScore() <= 7.5:
-                    print("La Banca se planta!!")
-                    break              
-                elif self.getScore() >= 7:
-                    print("La Banca se planta!!")
-                    break
-                else:
-                    rsc.sleep(1)
-                    continue
+    # def bancaTurn(self, deck, player_score):
+    #     while True:
+    #         mn.playing(self.player_name)
+    #         # rsc.sleep(3)
+
+    #         # la banca toma una carta del deck.
+    #         card =  str(self.getCard(deck))
+    #         mn.getCardBanca(card)
+
+    #         # en base de la carta recibida, se calcula los puntos.
+    #         self.setScore(card)
+    #         mn.getActualBancaScore(self.getScore())
+
+    #         if self.isPassed():
+    #             self.setPassed()
+    #             self.setNotActive()
+    #             break
+    #         else:
+    #             # plantarse o no plantarse
+    #             print("¿La Banca se plantas? ")
+    #             print(" La banca está pensando", end=" ", flush = True)
+    #             rsc.sleep(1)
+    #             print(".", end=" ", flush = True)
+    #             rsc.sleep(1)
+    #             print(".", end=" ", flush = True)
+    #             rsc.sleep(1)
+    #             print(".", end=" ", flush = True)
+
+    #             if self.getScore() > player_score and self.getScore() <= 7.5:
+    #                 print("La Banca se planta!!")
+    #                 break              
+    #             elif self.getScore() >= 7:
+    #                 print("La Banca se planta!!")
+    #                 break
+    #             else:
+    #                 rsc.sleep(1)
+    #                 continue
 
