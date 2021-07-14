@@ -1,9 +1,10 @@
 from random import random
 from cards import cards
 from player import player
-from resourses import recibir_nombre
+from resourses import recibir_nombre, recibir_eleccion_num
 import random
 from banca import checkWinner
+from menu import cantidadJugadores
 
 
 
@@ -18,9 +19,11 @@ def playSAH():
 
     jugadores = [] 
 
-    N = 2 # for N players
-    for i in range(0, N+1):
+    cantidadJugadores()
+    N = recibir_eleccion_num(4)
+    print("N-jugadores: ", N)
 
+    for i in range(0, N+1):
         if i < N:
             exec("player{0} = player('{1}')".format(i, recibir_nombre()))
             exec(f"jugadores.append(player{i})")
@@ -31,8 +34,17 @@ def playSAH():
             exec(f"jugadores.append(player{i})")
             print("juega: ", jugadores[i].player_name)
             jugadores[i].bancaTurn(deck, jugadores)
-            for obj in jugadores:
-                print(obj.player_name, obj.player_score)
+
+
+        print("\n\nlista real de resultados de esta ronda:")
+        for obj in jugadores:
+            if obj.player_score > 7.5:
+                print("\n\n", obj.player_name, obj.player_score, "\t¡Se ha pasado!\t", end = " ", flush = True)
+            elif obj.player_score <= 7.5:
+                print("\n\n", obj.player_name, obj.player_score, "\t              \t", end = " ", flush = True)
+
+            print("")
+
 
             
 

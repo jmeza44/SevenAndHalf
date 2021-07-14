@@ -96,21 +96,28 @@ class player:
             mn.getActualBancaScore(self.getScore())
 
             # plantarse o no plantarse
-            print("¿La Banca se plantas? ")
+            print("¿La Banca se planta? ")
             print(" La banca está pensando", end=" ", flush = True)
             rsc.sleep(1)
-            print(".", end=" ", flush = True)
-            rsc.sleep(1)
-            print(".", end=" ", flush = True)
-            rsc.sleep(1)
-            print(".", end=" ", flush = True)
+            # print(".", end=" ", flush = True)
+            # rsc.sleep(1)
+            # print(".", end=" ", flush = True)
+            # rsc.sleep(1)
+            # print(".", end=" ", flush = True)
 
             max = list_scores[0].player_score
-            for scores in list_scores:
+            for scores in list_scores[:-2]:
                 if max < scores.player_score:
                     max = scores.player_score
 
-            if self.getScore() > max and self.getScore() <= 7.5:
+            # puntos = []
+            # max = list_scores[0].player_score
+            # for scores in list_scores[:-2]:
+                # print("TEST: ", scores.player_score)
+
+            print("\n\nEL MAYOR de entre los jugadores es: ", max)
+
+            if max < self.getScore() and self.getScore() <= 7.5:
                 print("La Banca se planta!!")
                 break              
             elif self.getScore() >= 7:

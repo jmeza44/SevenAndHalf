@@ -21,8 +21,7 @@ def clear():
 def goSleep(seconds):
     sleep(seconds)
 
-
-def recibir_eleccion_num(num_opciones): # Recibe una elección de cualquien menú con opciones numericas (parametro: número de opciones)
+def recibir_eleccion_num(num_opciones) -> int: # Recibe una elección de cualquien menú con opciones numericas (parametro: número de opciones)
     while True: # Fuerza que la entrada esté entre las opciones
         try: # Fuerza que la entrada se un número entero
             eleccion = int(input(">> ")) # Toma la entrada
@@ -33,7 +32,6 @@ def recibir_eleccion_num(num_opciones): # Recibe una elección de cualquien men�
             print("ERROR!")
             continue
     return eleccion
-
 
 def recibir_nombre() -> str: # Recibe el nombre del jugador en turno (El nombre es retornado para ser almacenado en una variable)
     # limpiar_consola()

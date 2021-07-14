@@ -119,7 +119,7 @@ def playing(name):
 
 def getCard(card):
     print("La banca se prepara para quitar una carta...")
-    rsc.sleep(1.3)
+    # rsc.sleep(1.3)
     print("La banca te ha entregado un: \n")
     print("""
         |---------------|
@@ -135,7 +135,7 @@ def getCard(card):
 
 def getCardBanca(card):
     print("La banca se prepara para quitar una carta...")
-    rsc.sleep(1.3)
+    # rsc.sleep(1.3)
     print("La banca se ha entregado un: \n")
     print("""
                                     |---------------|
@@ -161,7 +161,7 @@ def lossMessage():
 def lossMessageBanca():
     print("///////////////LA BANCA HA PERDIDO..........")
 
-def mostrar_menu_juego(): # Muestra el menú de elección del número de jugadores
+def cantidadJugadores(): # Muestra el menú de elección del número de jugadores
     # mostrar_cargando(40)
     # limpiar_consola()
     print("""
