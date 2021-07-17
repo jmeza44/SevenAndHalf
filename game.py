@@ -17,7 +17,7 @@ class Game():
 
     def events(self):
             menu()
-            self.option = recibir_eleccion_num(3)
+            self.option = recibir_eleccion_num(1, 3)
 
             if self.option == 1:
                 print("opcion 1 iniciar juego")

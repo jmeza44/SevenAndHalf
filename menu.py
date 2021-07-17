@@ -5,7 +5,7 @@ import time
 tiempo = 0.0
 
 def menu():
-    # rsc.clear()
+    rsc.clear()
     print("""        + ----------------- 7 y un cachito ---------------- +
         + 1. Iniciar un nuevo juego.                        +
         + 2. Ver puntajes.                                  +
